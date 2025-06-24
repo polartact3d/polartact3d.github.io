@@ -3,28 +3,26 @@
 <head>
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+<!-- SEO & Open Graph Meta Tags -->
+<meta name="description" content="PolarTact3D is a low-cost tactile sensor using polarization imaging to capture both 3D shape and color in a single shot." />
+<meta property="og:title" content="PolarTact3D: Tactile Sensing with Shape and Color" />
+<meta property="og:description" content="A single-shot tactile sensor that captures 3D shape and color using polarization imaging. Built with PE film and a polarization camera." />
+<meta property="og:url" content="https://polartact3d.github.io" />
+<meta property="og:image" content="static/images/banner.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 
+<!-- Twitter Meta Tags -->
+<meta name="twitter:title" content="PolarTact3D: Shape and Color Tactile Sensor" />
+<meta name="twitter:description" content="Single-shot 3D tactile sensing using polarization imaging. Open-source, low-cost, and RGB-compatible." />
+<meta name="twitter:image" content="static/images/twitter_banner.png" />
+<meta name="twitter:card" content="summary_large_image" />
 
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Keywords -->
+<meta name="keywords" content="tactile sensor, polarization, 3D shape, color, robotics, perception, PolarTact3D, SfPUEL, optical sensor, robotic grasping" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-
-  <title>Academic Project Page</title>
+  <title>PolarTact3D</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -72,7 +70,7 @@
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="static/pdfs/paper.pdf" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -115,13 +113,8 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+      <img src="static/images/arch.png" alt="System Pipeline Diagram" style="height: 100%; width: auto;">      <h2 class="subtitle has-text-centered">
+        <strong>System Overview.</strong> Our setup uses a polarization camera mounted in an aluminum cage with side illumination. A glossy, transparent polyethylene (PE) film is stretched across the cage bottom. When pressed onto a surface, the film conforms to the object, acting as a dielectric layer that enables shape-from-polarization (SfP) reconstruction via either neural networks or physics-based methods.
       </h2>
     </div>
   </div>
@@ -135,10 +128,24 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
+        <p>
+          <strong>Vision-based tactile sensors</strong> are essential for robotic applications such as grasping and physical interaction.
+          We propose a <strong>low-cost, polarization-imaging-based tactile sensor</strong> that captures both shape and color information in a single shot.
+        </p>
+        <p>
+          Unlike photometric-stereo-based solutions like 
+          <a href="https://www.gelsight.com/" target="_blank"><em>GelSight</em></a>, 
+          which require precise internal illumination and cannot reliably capture color due to the reflective coating required for surface reconstruction, 
+          our method leverages the <strong>Angle of Linear Polarization (AoLP)</strong> and <strong>Degree of Linear Polarization (DoLP)</strong> to encode 3D geometry.
+        </p>
+        <p>
+          This approach enables robust shape reconstruction, even on transparent or specular targets. The sensor is constructed using commercial transparent 
+          <strong>polyethylene (PE) film</strong> and an off-the-shelf polarization camera, making it simple and inexpensive to build.
+        </p>
+        <p>
+          We demonstrate the effectiveness of our design through real-world experiments on various contact surface scenarios.
+        </p>     
+       </div>
       </div>
     </div>
   </div>
@@ -151,100 +158,70 @@
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+        
+        <div class="item">
+          <figure class="image is-flex is-justify-content-center">
+            <img src="static/images/results.png" alt="pipeline visual result images" style="max-width: 100%; height: auto;" />
+          </figure>
+          <h2 class="subtitle has-text-centered">
+            Grid of result images from PolarTact NN and Physics pipelines.
+          </h2>
+        </div>
+
+        <div class="item">
+          <figure class="image is-flex is-justify-content-center">
+            <img src="static/images/system.png" alt="diagrams of architecture" style="max-width: 100%; height: auto;" />
+          </figure>
+          <h2 class="subtitle has-text-centered">
+            Inside the device prototype.
+          </h2>
+        </div>
+
+        <div class="item">
+          <figure class="image is-flex is-justify-content-center">
+            <img src="static/images/dolpaolp_graphs.png" alt="dolp and aolp graphs" style="max-width: 100%; max-height: 700px; width: auto;" />
+          </figure>
+          <h2 class="subtitle has-text-centered">
+            Surface Normal from Polarization.
+          </h2>
+        </div>
+
+        <div class="item">
+          <figure class="image is-flex is-justify-content-center">
+            <img src="static/images/normal_reference.png" alt="surface normal reference" style="max-width: 100%; max-height: 700px; width: auto;" />
+          </figure>
+          <h2 class="subtitle has-text-centered">
+            Mathematically-Generated Ground Truth Surface Normal Reference.
+          </h2>
+        </div>
+
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
     </div>
   </div>
-</div>
-</div>
 </section>
 <!-- End image carousel -->
 
 
 
-
 <!-- Youtube video -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
-    <div class="container">
+    <div class="container"> -->
       <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
+      <!-- <h2 class="title is-3">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          
-          <div class="publication-video">
+           -->
+          <!-- <div class="publication-video"> -->
             <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
 
 
 <!-- Paper poster -->
@@ -253,7 +230,7 @@
     <div class="container">
       <h2 class="title">Poster</h2>
 
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+      <iframe  src="static/pdfs/poster.pdf" width="100%" height="550">
           </iframe>
         
       </div>
@@ -266,35 +243,56 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>
+        @inproceedings{garcia2025polartact3d,
+          title     = {{PolarTact3D}: Single-shot Tactile 3-D Shape and Color Sensing with Polarization Imaging},
+          author    = {Kai Garcia and Mairi Yoshioka and Huaijin Chen and Tyler Ray and Tianlu Wang and Frances Zhu},
+          booktitle = {RSS Workshop on Navigating Contact Dynamics in Robotics: Bridging the Gap Between Modeling, Sensing, and Contact-aware Control},
+          year      = {2025},
+          address   = {Los Angeles, USA},
+          url       = {https://arxiv.org/abs/xxxxx},
+          note      = {Workshop paper at RSS 2025}
+        }     
+      </code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
 
 
-  <footer class="footer">
+<footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
-        <div class="content">
-
+        <div class="content has-text-centered">
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            Made with ❤️ by <strong>Kai Garcia</strong> and collaborators from UH Mānoa & Colorado School of Mines.<br>
+            Part of our RSS 2025 workshop submission on tactile sensing and robotic perception.<br>
+            <a href="https://github.com/KaiGarcia/PolarTact3D" target="_blank">GitHub</a> |
+            <a href="static/paper/polartact3d_rss25.pdf" target="_blank">Paper</a> |
+            <a href="mailto:huaijin@hawaii.edu">Contact Us</a>
           </p>
-
+          <p style="margin-top: 1rem;">
+            Site adapted from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+          </p>
         </div>
       </div>
     </div>
   </div>
 </footer>
-
-<!-- Statcounter tracking code -->
   
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
+<!-- Default Statcounter code for PolarTact3D https://polartact3d.github.io/ -->
+<script type="text/javascript">
+var sc_project=13146515; 
+var sc_invisible=1; 
+var sc_security="9878d09e"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13146515/0/9878d09e/1/" alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
 
   </body>
   </html>
